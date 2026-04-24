@@ -6,14 +6,14 @@ import {
   Sparkles,
   GraduationCap,
   Target,
-  CircleDot
+  Gamepad2
 } from "lucide-react";
 
 const STATS = [
   {
-    icon: CircleDot,
+    icon: Gamepad2,
     value: "9000+",
-    label: "Biliard"
+    label: "Game"
   },
   {
     icon: Trophy,
@@ -62,7 +62,7 @@ export default function AboutSection({ isDark }) {
             text-sm mb-3"
           >
             <Sparkles size={16} />
-             Behind The Name⚡
+            Behind The Name ⚡
           </span>
 
           <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
