@@ -1,58 +1,51 @@
-import { useCallback, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import useEmblaCarousel from 'embla-carousel-react';
+import { useCallback, useEffect } from "react";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import useEmblaCarousel from "embla-carousel-react";
 
 const projects = [
   {
-    title: '📷 Photograph – Ed Sheeran',
+    title: "Asmalibrasi – Soegi Bornean 🌙",
     description:
-      'Lagu tentang kenangan cinta yang tetap hidup lewat foto, walau jarak memisahkan.',
-    image: '/ed.jpg',
-    color: 'from-blue-400 via-indigo-500 to-slate-800',
+      "Lagu tentang cinta yang tidak sederhana, tapi terasa hangat dan dalam.",
+    image: "/asma.jpg",
+    color: "from-emerald-400 via-green-500 to-teal-600",
   },
   {
-    title: '🎭 Somebody’s Pleasure – Aziz Hedra',
+    title: "One in a Million – Aaliyah 💎",
     description:
-      'Cerita tentang kehilangan diri sendiri demi menyenangkan orang lain.',
-    image: '/aziz.jpg',
-    color: 'from-purple-600 via-slate-700 to-black',
+      "Seseorang yang sangat langka, berharga, dan tidak tergantikan.",
+    image: "/aliyah.jpg",
+    color: "from-lime-300 via-emerald-500 to-green-700",
   },
   {
-    title: '🌅 Bersenja Gurau – Raim Laode',
+    title: "Risk It All – Bruno Mars 🔥",
     description:
-      'lagu manis tentang menikmati waktu sederhana bareng orang tersayang.',
-    image: '/raim.jpeg',
-    color: 'from-orange-300 via-pink-400 to-rose-500',
+      "Tentang keberanian mengambil risiko demi cinta dan tujuan hidup.",
+    image: "/bruno.jpg",
+    color: "from-emerald-300 via-teal-500 to-cyan-700",
   },
   {
-    title: '🌆 Kota Ini Tak Sama Tanpamu – Nadhif Basmalah',
+    title: "Everything U Are – Hindia 💖",
     description:
-      'Perasaan kosong karena seseorang pergi, sampai kota terasa berbeda.',
-    image: '/nadhif.jpg',
-    color: 'from-gray-500 via-slate-600 to-black',
+      "Menerima seseorang sepenuhnya, tanpa syarat dan tanpa tapi.",
+    image: "/hindia.jpg",
+    color: "from-green-400 via-emerald-600 to-slate-800",
   },
   {
-    title: '🎲 Risk It All – Bruno Mars',
+    title: "Monolog – Pamungkas 🎧",
     description:
-      'Tentang berani mengambil risiko demi cinta yang benar-benar diinginkan.',
-    image: '/bruno.jpg',
-    color: 'from-red-500 via-orange-500 to-yellow-400',
-  },
-  {
-    title: '☎️ Payphone – Maroon 5',
-    description:
-      'Kisah hubungan yang gagal dan penyesalan yang tersisa',
-    image: '/maroon.jpg',
-    color: 'from-pink-500 via-rose-500 to-red-600',
+      "Percakapan dengan diri sendiri tentang pikiran, harapan, dan luka yang diam.",
+    image: "/monolog.jpg",
+    color: "from-lime-400 via-green-600 to-emerald-900",
   },
 ];
 
 export default function ProjectsSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
-    align: 'center',
+    align: "center",
   });
 
   const scrollPrev = useCallback(() => {
@@ -65,18 +58,27 @@ export default function ProjectsSection() {
 
   useEffect(() => {
     if (!emblaApi) return;
+
     const interval = setInterval(() => {
       emblaApi.scrollNext();
-    }, 3000);
+    }, 3500);
+
     return () => clearInterval(interval);
   }, [emblaApi]);
 
   return (
     <section
       id="projects"
-      className="py-20 overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-800"
+      className="py-24 overflow-hidden relative
+      bg-gradient-to-br from-[#0b1d13] via-[#102a1f] to-[#1f3b2c]"
     >
-      <div className="container mx-auto px-4">
+      {/* soft background glow */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute w-[400px] h-[400px] bg-emerald-500 blur-[120px] top-[-150px] left-[-150px]" />
+        <div className="absolute w-[350px] h-[350px] bg-lime-400 blur-[120px] bottom-[-150px] right-[-150px]" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
 
         {/* HEADER */}
         <motion.div
@@ -86,8 +88,11 @@ export default function ProjectsSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Soundtrack Hidup🎵
+            Soundtrack Hidup 🎵
           </h2>
+          <p className="text-green-200 mt-3 text-sm md:text-base">
+            Lagu yang jadi bagian dari perjalanan cerita
+          </p>
         </motion.div>
 
         {/* CAROUSEL */}
@@ -100,41 +105,42 @@ export default function ProjectsSection() {
                   key={index}
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%]"
                 >
-                  <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/10 hover:-translate-y-3 transition-all duration-500">
+                  <div
+                    className="p-5 rounded-2xl
+                    bg-white/10 backdrop-blur-lg
+                    border border-white/10
+                    hover:-translate-y-2 transition-all duration-500"
+                  >
 
+                    {/* IMAGE */}
                     <div className="relative group">
 
-                      {/* GLOW */}
+                      {/* glow */}
                       <div
                         className={`absolute inset-0 rounded-xl bg-gradient-to-r ${project.color}
-                        blur-2xl opacity-40 group-hover:opacity-90 
-                        scale-90 group-hover:scale-110 transition duration-500`}
+                        blur-2xl opacity-40 group-hover:opacity-70
+                        scale-95 group-hover:scale-110 transition duration-500`}
                       />
 
-                      {/* BORDER */}
                       <div
                         className={`relative p-[2px] rounded-xl bg-gradient-to-r ${project.color}`}
                       >
-
-                        {/* IMAGE */}
-                        <div className="aspect-[2/3] w-full rounded-xl overflow-hidden bg-black flex items-center justify-center">
+                        <div className="aspect-[2/3] w-full rounded-xl overflow-hidden bg-black">
                           <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-full object-cover object-center 
+                            className="w-full h-full object-cover object-center
                             group-hover:scale-110 transition duration-500"
                           />
                         </div>
-
                       </div>
                     </div>
 
-                    {/* TITLE */}
+                    {/* TEXT */}
                     <h3 className="font-bold text-lg mt-4 text-white">
                       {project.title}
                     </h3>
 
-                    {/* DESC */}
                     <p className="text-sm text-gray-300 mt-2">
                       {project.description}
                     </p>
@@ -146,17 +152,19 @@ export default function ProjectsSection() {
             </div>
           </div>
 
-          {/* BUTTON */}
+          {/* NAV BUTTONS */}
           <Button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white backdrop-blur"
+            className="absolute left-0 top-1/2 -translate-y-1/2
+            bg-white/10 hover:bg-white/30 text-white backdrop-blur border border-white/20"
           >
             <ChevronLeft />
           </Button>
 
           <Button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/40 text-white backdrop-blur"
+            className="absolute right-0 top-1/2 -translate-y-1/2
+            bg-white/10 hover:bg-white/30 text-white backdrop-blur border border-white/20"
           >
             <ChevronRight />
           </Button>
