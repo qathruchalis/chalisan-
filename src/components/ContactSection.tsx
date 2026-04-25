@@ -74,12 +74,23 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <span className="text-lime-300 font-medium mb-2 block">
+          <span
+            className="text-lime-300 font-semibold mb-2 block uppercase tracking-[0.15em]"
+            style={{
+              fontFamily: "'Montserrat', sans-serif",
+            }}
+          >
             Contact
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
-            Get In Touch ✨
+          <h2
+            className="text-3xl md:text-5xl font-bold mb-4 text-white uppercase"
+            style={{
+              fontFamily: "'Cinzel', serif",
+              letterSpacing: "0.08em",
+            }}
+          >
+            Let’s Connect ✨
           </h2>
 
           <div className="w-20 h-1 bg-gradient-to-r from-lime-300 to-emerald-400 mx-auto rounded-full" />
@@ -106,10 +117,21 @@ export default function ContactSection() {
                 </div>
 
                 <div>
-                  <p className="text-green-200/70 text-sm">
+                  <p
+                    className="text-green-200/70 text-sm uppercase tracking-[0.08em]"
+                    style={{
+                      fontFamily: "'Montserrat', sans-serif",
+                    }}
+                  >
                     {info.label}
                   </p>
-                  <p className="text-white font-medium">
+
+                  <p
+                    className="text-white font-semibold"
+                    style={{
+                      fontFamily: "'Montserrat', sans-serif",
+                    }}
+                  >
                     {info.value}
                   </p>
                 </div>
@@ -130,8 +152,12 @@ export default function ContactSection() {
               value={formData.name}
               onChange={handleChange}
               className="w-full p-3 rounded-lg
-              bg-white/10 text-white placeholder:text-green-200/50
+              bg-white/10 text-white
+              placeholder:text-green-200/50
               border border-white/10 outline-none"
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+              }}
             />
 
             <input
@@ -141,8 +167,12 @@ export default function ContactSection() {
               value={formData.email}
               onChange={handleChange}
               className="w-full p-3 rounded-lg
-              bg-white/10 text-white placeholder:text-green-200/50
+              bg-white/10 text-white
+              placeholder:text-green-200/50
               border border-white/10 outline-none"
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+              }}
             />
 
             <input
@@ -151,8 +181,12 @@ export default function ContactSection() {
               value={formData.subject}
               onChange={handleChange}
               className="w-full p-3 rounded-lg
-              bg-white/10 text-white placeholder:text-green-200/50
+              bg-white/10 text-white
+              placeholder:text-green-200/50
               border border-white/10 outline-none"
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+              }}
             />
 
             <textarea
@@ -161,8 +195,12 @@ export default function ContactSection() {
               value={formData.message}
               onChange={handleChange}
               className="w-full p-3 rounded-lg min-h-[150px]
-              bg-white/10 text-white placeholder:text-green-200/50
+              bg-white/10 text-white
+              placeholder:text-green-200/50
               border border-white/10 outline-none"
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+              }}
             />
 
             <button
@@ -170,7 +208,11 @@ export default function ContactSection() {
               disabled={isSubmitting}
               className="w-full py-3 rounded-xl
               bg-gradient-to-r from-lime-300 to-emerald-400
-              text-black font-bold transition hover:scale-[1.02]"
+              text-black font-bold uppercase tracking-[0.08em]
+              transition hover:scale-[1.02]"
+              style={{
+                fontFamily: "'Montserrat', sans-serif",
+              }}
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>

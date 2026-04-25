@@ -10,7 +10,8 @@ const destinations = [
     image: "/Hollywood.jpg",
     description:
       "A country full of opportunities, bright cities, and endless ambition.",
-    reason: "I want to experience a fast-paced and ambitious lifestyle.",
+    reason:
+      "I want to experience a fast-paced and ambitious lifestyle.",
     badge: "🌟 Dream Destination",
     color: "from-amber-300 via-orange-400 to-yellow-400",
   },
@@ -19,7 +20,8 @@ const destinations = [
     image: "/alpen.jpg",
     description:
       "Silent mountains, crystal air, and landscapes that feel unreal.",
-    reason: "Peaceful places help me reflect and recharge my mind.",
+    reason:
+      "Peaceful places help me reflect and recharge my mind.",
     badge: "❄️ Must Visit",
     color: "from-sky-300 via-cyan-400 to-blue-500",
   },
@@ -28,7 +30,8 @@ const destinations = [
     image: "/balon.jpg",
     description:
       "Hot air balloons, golden skies, and magical morning views.",
-    reason: "The atmosphere feels warm, calm, and unforgettable.",
+    reason:
+      "The atmosphere feels warm, calm, and unforgettable.",
     badge: "🎈 Bucket List",
     color: "from-orange-300 via-amber-400 to-yellow-300",
   },
@@ -37,7 +40,8 @@ const destinations = [
     image: "/fuji.jpg",
     description:
       "A perfect blend of modern cities, tradition, and peaceful nature.",
-    reason: "Everything feels clean, organized, and aesthetically beautiful.",
+    reason:
+      "Everything feels clean, organized, and aesthetically beautiful.",
     badge: "🌸 Future Trip",
     color: "from-pink-300 via-rose-400 to-red-400",
   },
@@ -80,37 +84,54 @@ export default function CertificatesSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-
         {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
+          <span
+            className="block text-lime-300 text-sm tracking-[0.3em] uppercase mb-3"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            Future Destinations ✦
+          </span>
+
+          <h2
+            className="text-4xl md:text-6xl font-bold text-white tracking-wide"
+            style={{ fontFamily: "Cinzel, serif" }}
+          >
             Next Stop ✈️
           </h2>
 
-          <p className="text-green-200 mt-3 text-sm md:text-base">
-            Places I dream of visiting one day
+          <p
+            className="text-green-200 mt-4 text-sm md:text-base max-w-xl mx-auto leading-relaxed"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
+            Places I dream of visiting one day, where memories,
+            experiences, and new stories are waiting to happen.
           </p>
+
+          <div className="w-24 h-1 rounded-full mx-auto mt-6 bg-gradient-to-r from-lime-300 via-emerald-400 to-green-500" />
         </motion.div>
 
         {/* CAROUSEL */}
         <div className="relative max-w-6xl mx-auto">
           <div ref={emblaRef} className="overflow-hidden">
             <div className="flex gap-6">
-
               {destinations.map((place, index) => (
                 <div
                   key={index}
                   className="flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%]"
                 >
-                  <div className="p-5 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/10 hover:-translate-y-3 transition-all duration-500">
-
+                  <div
+                    className="p-5 rounded-3xl bg-white/10
+                    backdrop-blur-xl border border-white/10
+                    hover:-translate-y-3 transition-all duration-500"
+                  >
                     {/* CARD */}
                     <div className="relative group">
-
                       {/* glow */}
                       <div
                         className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${place.color}
@@ -119,7 +140,12 @@ export default function CertificatesSection() {
                       />
 
                       {/* badge */}
-                      <div className="absolute top-3 right-3 z-20 px-3 py-1 rounded-full text-xs font-medium bg-black/40 backdrop-blur-md text-white border border-white/10">
+                      <div
+                        className="absolute top-3 right-3 z-20 px-3 py-1 rounded-full
+                        text-xs font-medium bg-black/40 backdrop-blur-md
+                        text-white border border-white/10"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >
                         {place.badge}
                       </div>
 
@@ -139,22 +165,29 @@ export default function CertificatesSection() {
                     </div>
 
                     {/* TEXT */}
-                    <h3 className="font-bold text-lg mt-4 text-white">
+                    <h3
+                      className="font-bold text-xl mt-4 text-white"
+                      style={{ fontFamily: "Cinzel, serif" }}
+                    >
                       {place.title}
                     </h3>
 
-                    <p className="text-sm text-green-100/80 mt-2 leading-relaxed">
+                    <p
+                      className="text-sm text-green-100/80 mt-2 leading-relaxed"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
                       {place.description}
                     </p>
 
-                    <p className="text-sm text-lime-200 mt-3 italic">
+                    <p
+                      className="text-sm text-lime-200 mt-3 italic leading-relaxed"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
                       Why? {place.reason}
                     </p>
-
                   </div>
                 </div>
               ))}
-
             </div>
           </div>
 
@@ -162,7 +195,8 @@ export default function CertificatesSection() {
           <Button
             onClick={scrollPrev}
             className="absolute left-0 top-1/2 -translate-y-1/2
-            bg-white/10 hover:bg-white/30 text-white backdrop-blur border border-white/20"
+            bg-white/10 hover:bg-white/30 text-white
+            backdrop-blur border border-white/20"
           >
             <ChevronLeft />
           </Button>
@@ -170,11 +204,11 @@ export default function CertificatesSection() {
           <Button
             onClick={scrollNext}
             className="absolute right-0 top-1/2 -translate-y-1/2
-            bg-white/10 hover:bg-white/30 text-white backdrop-blur border border-white/20"
+            bg-white/10 hover:bg-white/30 text-white
+            backdrop-blur border border-white/20"
           >
             <ChevronRight />
           </Button>
-
         </div>
       </div>
     </section>

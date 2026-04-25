@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Navbar({ isDark, toggleTheme }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,25 +12,28 @@ export default function Navbar({ isDark, toggleTheme }) {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { label: 'The Beginning', href: '#home' },
-    { label: 'Behind The Name⚡', href: '#about' },
-    { label: 'Academic Path🔥', href: '#skills' },
-    { label: 'Midnight Soundtrack🎵', href: '#projects' },
-    { label: 'Let’s Connect', href: 'https://wa.me/6285373819128' },
+    { label: "The Beginning", href: "#home" },
+    { label: "Behind The Name ⚡", href: "#about" },
+    { label: "Academic Path 🔥", href: "#skills" },
+    { label: "Midnight Soundtrack 🎵", href: "#projects" },
+    { label: "Let’s Connect", href: "https://wa.me/6285373819128" },
   ];
 
   const scrollToSection = (href) => {
-    if (href.startsWith('#')) {
+    if (href.startsWith("#")) {
       const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
     } else {
-      window.open(href, '_blank');
+      window.open(href, "_blank");
     }
+
     setIsMobileMenuOpen(false);
   };
 
@@ -61,22 +64,31 @@ export default function Navbar({ isDark, toggleTheme }) {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
 
+          {/* LOGO */}
           <motion.a
             href="#home"
             onClick={(e) => {
               e.preventDefault();
-              scrollToSection('#home');
+              scrollToSection("#home");
             }}
             whileHover={{ scale: 1.05 }}
-            className={`text-xl md:text-2xl font-bold cursor-pointer ${
-              isDark
-                ? 'bg-gradient-to-r from-lime-200 via-emerald-300 to-green-400 bg-clip-text text-transparent'
-                : 'bg-gradient-to-r from-[#1f2937] via-[#14532d] to-[#166534] bg-clip-text text-transparent'
-            }`}
+            className={`cursor-pointer
+              text-2xl md:text-3xl
+              font-bold uppercase
+              ${
+                isDark
+                  ? "bg-gradient-to-r from-lime-200 via-emerald-300 to-green-400 bg-clip-text text-transparent"
+                  : "bg-gradient-to-r from-[#1f2937] via-[#14532d] to-[#166534] bg-clip-text text-transparent"
+              }`}
+            style={{
+              fontFamily: "'Cinzel', serif",
+              letterSpacing: "0.18em",
+            }}
           >
             Chalisan
           </motion.a>
 
+          {/* DESKTOP MENU */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <motion.a
@@ -87,30 +99,37 @@ export default function Navbar({ isDark, toggleTheme }) {
                   scrollToSection(item.href);
                 }}
                 whileHover={{ y: -2 }}
-                className={`relative group font-medium transition-all ${
-                  isDark
-                    ? 'text-white/85 hover:text-lime-200'
-                    : 'text-slate-800 hover:text-green-700'
-                }`}
+                className={`relative group
+                  text-sm font-semibold uppercase tracking-[0.08em]
+                  transition-all
+                  ${
+                    isDark
+                      ? "text-white/85 hover:text-lime-200"
+                      : "text-slate-800 hover:text-green-700"
+                  }`}
+                style={{
+                  fontFamily: "'Montserrat', sans-serif",
+                }}
               >
                 {item.label}
 
                 <span
                   className={`absolute left-0 -bottom-1 h-[2px] w-0 transition-all duration-300 group-hover:w-full ${
-                    isDark ? 'bg-lime-300' : 'bg-green-700'
+                    isDark ? "bg-lime-300" : "bg-green-700"
                   }`}
                 />
               </motion.a>
             ))}
 
+            {/* THEME BUTTON */}
             <Button
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
               className={`rounded-full ${
                 isDark
-                  ? 'text-white hover:bg-emerald-400/10'
-                  : 'text-slate-800 hover:bg-lime-200/40'
+                  ? "text-white hover:bg-emerald-400/10"
+                  : "text-slate-800 hover:bg-lime-200/40"
               }`}
             >
               <AnimatePresence mode="wait">
@@ -137,6 +156,7 @@ export default function Navbar({ isDark, toggleTheme }) {
             </Button>
           </div>
 
+          {/* MOBILE MENU BUTTON */}
           <div className="flex items-center gap-2 md:hidden">
             <Button variant="ghost" size="icon" onClick={toggleTheme}>
               {isDark ? (
@@ -150,7 +170,7 @@ export default function Navbar({ isDark, toggleTheme }) {
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={isDark ? 'text-white' : 'text-slate-800'}
+              className={isDark ? "text-white" : "text-slate-800"}
             >
               {isMobileMenuOpen ? <X /> : <Menu />}
             </Button>
@@ -158,16 +178,17 @@ export default function Navbar({ isDark, toggleTheme }) {
         </div>
       </div>
 
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             className={`md:hidden backdrop-blur-xl ${
               isDark
-                ? 'bg-gradient-to-b from-[#0b1d13]/95 to-[#1f3b2c]/95 border-t border-emerald-300/10'
-                : 'bg-gradient-to-b from-[#f7fee7]/95 to-[#bbf7d0]/95 border-t border-lime-300/30'
+                ? "bg-gradient-to-b from-[#0b1d13]/95 to-[#1f3b2c]/95 border-t border-emerald-300/10"
+                : "bg-gradient-to-b from-[#f7fee7]/95 to-[#bbf7d0]/95 border-t border-lime-300/30"
             }`}
           >
             <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
@@ -179,11 +200,14 @@ export default function Navbar({ isDark, toggleTheme }) {
                     e.preventDefault();
                     scrollToSection(item.href);
                   }}
-                  className={`transition ${
+                  className={`text-sm font-semibold uppercase tracking-[0.08em] transition ${
                     isDark
-                      ? 'text-white/85 hover:text-lime-200'
-                      : 'text-slate-800 hover:text-green-700'
+                      ? "text-white/85 hover:text-lime-200"
+                      : "text-slate-800 hover:text-green-700"
                   }`}
+                  style={{
+                    fontFamily: "'Montserrat', sans-serif",
+                  }}
                 >
                   {item.label}
                 </a>
