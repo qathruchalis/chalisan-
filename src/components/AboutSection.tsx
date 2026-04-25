@@ -40,7 +40,7 @@ const ACCORDION_DATA = [
 ];
 
 export default function AboutSection({ isDark }) {
-  const [expanded, setExpanded] = useState(null);
+  const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
     <section
@@ -58,14 +58,18 @@ export default function AboutSection({ isDark }) {
         >
           <span
             className="flex items-center justify-center gap-2
-            text-lime-300 font-bold tracking-widest uppercase
-            text-sm mb-3"
+            text-lime-300 font-semibold tracking-[0.2em]
+            uppercase text-sm mb-3"
+            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             <Sparkles size={16} />
             Behind The Name ⚡
           </span>
 
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">
+          <h2
+            className="text-3xl md:text-5xl font-bold mb-4 text-white tracking-wide"
+            style={{ fontFamily: "Cinzel, serif" }}
+          >
             Know Me Better
           </h2>
 
@@ -128,8 +132,18 @@ export default function AboutSection({ isDark }) {
                   <stat.icon
                     className="h-6 w-6 mx-auto mb-2 text-lime-300"
                   />
-                  <p className="text-2xl font-bold">{stat.value}</p>
-                  <p className="text-sm text-gray-200">{stat.label}</p>
+                  <p
+                    className="text-2xl font-bold"
+                    style={{ fontFamily: "Cinzel, serif" }}
+                  >
+                    {stat.value}
+                  </p>
+                  <p
+                    className="text-sm text-gray-200"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
+                  >
+                    {stat.label}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -140,11 +154,17 @@ export default function AboutSection({ isDark }) {
             className="space-y-6 p-6 rounded-2xl shadow-lg
             bg-white/10 backdrop-blur-sm"
           >
-            <h3 className="text-2xl md:text-3xl font-bold text-white">
+            <h3
+              className="text-2xl md:text-3xl font-bold text-white"
+              style={{ fontFamily: "Cinzel, serif" }}
+            >
               Future Entrepreneur 💼
             </h3>
 
-            <p className="text-lg text-gray-200">
+            <p
+              className="text-lg text-gray-200"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
               Halo, saya{" "}
               <strong className="text-lime-300">
                 Qathrun Nada Chalisan
@@ -171,7 +191,10 @@ export default function AboutSection({ isDark }) {
                       <span className="text-lime-300">
                         {item.icon}
                       </span>
-                      <span className="font-semibold">
+                      <span
+                        className="font-semibold"
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >
                         {item.title}
                       </span>
                     </div>
@@ -192,7 +215,10 @@ export default function AboutSection({ isDark }) {
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                       >
-                        <div className="p-4 text-gray-200">
+                        <div
+                          className="p-4 text-gray-200 leading-relaxed"
+                          style={{ fontFamily: "Poppins, sans-serif" }}
+                        >
                           {item.content}
                         </div>
                       </motion.div>

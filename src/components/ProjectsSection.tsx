@@ -8,35 +8,35 @@ const projects = [
   {
     title: "Asmalibrasi – Soegi Bornean 🌙",
     description:
-      "Lagu tentang cinta yang tidak sederhana, tapi terasa hangat dan dalam.",
+      "A song about love that is never simple, yet always feels warm and deep.",
     image: "/asma.jpg",
     color: "from-emerald-400 via-green-500 to-teal-600",
   },
   {
     title: "One in a Million – Aaliyah 💎",
     description:
-      "Seseorang yang sangat langka, berharga, dan tidak tergantikan.",
+      "About someone rare, precious, and impossible to replace.",
     image: "/aliyah.jpg",
     color: "from-lime-300 via-emerald-500 to-green-700",
   },
   {
     title: "Risk It All – Bruno Mars 🔥",
     description:
-      "Tentang keberanian mengambil risiko demi cinta dan tujuan hidup.",
+      "The courage to risk everything for love and for your purpose.",
     image: "/bruno.jpg",
     color: "from-emerald-300 via-teal-500 to-cyan-700",
   },
   {
     title: "Everything U Are – Hindia 💖",
     description:
-      "Menerima seseorang sepenuhnya, tanpa syarat dan tanpa tapi.",
+      "Accepting someone completely, with no conditions and no doubts.",
     image: "/hindia.jpg",
     color: "from-green-400 via-emerald-600 to-slate-800",
   },
   {
     title: "Monolog – Pamungkas 🎧",
     description:
-      "Percakapan dengan diri sendiri tentang pikiran, harapan, dan luka yang diam.",
+      "A quiet conversation with yourself about thoughts, hopes, and silent pain.",
     image: "/monolog.jpg",
     color: "from-lime-400 via-green-600 to-emerald-900",
   },
@@ -72,7 +72,7 @@ export default function ProjectsSection() {
       className="py-24 overflow-hidden relative
       bg-gradient-to-br from-[#0b1d13] via-[#102a1f] to-[#1f3b2c]"
     >
-      {/* soft background glow */}
+      {/* background glow */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute w-[400px] h-[400px] bg-emerald-500 blur-[120px] top-[-150px] left-[-150px]" />
         <div className="absolute w-[350px] h-[350px] bg-lime-400 blur-[120px] bottom-[-150px] right-[-150px]" />
@@ -87,11 +87,24 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
-            Soundtrack Hidup 🎵
+          <span className="text-lime-300 tracking-[0.25em] uppercase text-sm font-semibold block mb-3 font-['Poppins']">
+            Personal Playlist
+          </span>
+
+          <h2
+            className="text-4xl md:text-6xl font-bold text-white
+            font-['Cinzel'] tracking-wide"
+          >
+            Midnight Soundtrack 🎵
           </h2>
-          <p className="text-green-200 mt-3 text-sm md:text-base">
-            Lagu yang jadi bagian dari perjalanan cerita
+
+          <p
+            className="text-green-200 mt-4 text-sm md:text-base
+            max-w-xl mx-auto leading-relaxed
+            font-['Poppins']"
+          >
+            Songs that stay quiet in the background,
+            but somehow tell the loudest stories.
           </p>
         </motion.div>
 
@@ -111,7 +124,6 @@ export default function ProjectsSection() {
                     border border-white/10
                     hover:-translate-y-2 transition-all duration-500"
                   >
-
                     {/* IMAGE */}
                     <div className="relative group">
 
@@ -137,14 +149,13 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* TEXT */}
-                    <h3 className="font-bold text-lg mt-4 text-white">
+                    <h3 className="font-bold text-lg mt-4 text-white font-['Poppins']">
                       {project.title}
                     </h3>
 
-                    <p className="text-sm text-gray-300 mt-2">
+                    <p className="text-sm text-gray-300 mt-2 leading-relaxed font-['Poppins']">
                       {project.description}
                     </p>
-
                   </div>
                 </div>
               ))}
@@ -156,7 +167,8 @@ export default function ProjectsSection() {
           <Button
             onClick={scrollPrev}
             className="absolute left-0 top-1/2 -translate-y-1/2
-            bg-white/10 hover:bg-white/30 text-white backdrop-blur border border-white/20"
+            bg-white/10 hover:bg-white/30 text-white
+            backdrop-blur border border-white/20"
           >
             <ChevronLeft />
           </Button>
@@ -164,7 +176,8 @@ export default function ProjectsSection() {
           <Button
             onClick={scrollNext}
             className="absolute right-0 top-1/2 -translate-y-1/2
-            bg-white/10 hover:bg-white/30 text-white backdrop-blur border border-white/20"
+            bg-white/10 hover:bg-white/30 text-white
+            backdrop-blur border border-white/20"
           >
             <ChevronRight />
           </Button>

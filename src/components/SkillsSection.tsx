@@ -87,7 +87,7 @@ export default function SkillsSection() {
           </span>
 
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Academic & Life Skills
+           Academic Path🔥
           </h2>
 
           <div className="w-20 h-1 bg-gradient-to-r from-lime-300 to-emerald-400 mx-auto rounded-full" />
