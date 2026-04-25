@@ -1,4 +1,3 @@
-// HeroSection — premium version (Cinzel + Poppins vibes)
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
@@ -43,23 +42,23 @@ export default function HeroSection({ isDark }) {
     >
       <canvas ref={canvasRef} className="absolute inset-0 -z-20" />
 
-      {/* cursor glow */}
+      {/* CURSOR GLOW */}
       <div
         ref={glowRef}
-        className="pointer-events-none fixed w-80 h-80 rounded-full
-        bg-gradient-to-br from-lime-300/20 via-emerald-300/20 to-green-500/20
-        blur-3xl -translate-x-1/2 -translate-y-1/2 z-10"
+        className="pointer-events-none fixed w-[420px] h-[420px] rounded-full
+        bg-gradient-to-br from-lime-200/35 via-emerald-300/35 to-green-400/35
+        blur-[140px] -translate-x-1/2 -translate-y-1/2 z-10"
       />
 
-      {/* mouse trail */}
+      {/* MOUSE TRAIL */}
       {trail.map((t) => (
         <motion.div
           key={t.id}
-          className="pointer-events-none fixed w-1.5 h-1.5 rounded-full blur-[1px] z-20 bg-white/70"
+          className="pointer-events-none fixed w-2 h-2 rounded-full blur-[2px] z-20 bg-white/80"
           style={{ left: t.x, top: t.y }}
           initial={{ opacity: 1, scale: 1 }}
-          animate={{ opacity: 0, scale: 2.5 }}
-          transition={{ duration: 0.6 }}
+          animate={{ opacity: 0, scale: 2.8 }}
+          transition={{ duration: 0.7 }}
         />
       ))}
 
@@ -68,51 +67,10 @@ export default function HeroSection({ isDark }) {
       <div className="container mx-auto px-4 relative z-30">
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-6xl mx-auto">
 
-          {/* FOTO */}
-          <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="flex justify-center md:justify-start"
-          >
-            <div className="relative group md:ml-[-20px] md:mt-4">
+          {/* TEXT LEFT */}
+          <div className="text-center md:text-left order-2 md:order-1">
 
-              {/* glow */}
-              <div
-                className="absolute -inset-4 rounded-full blur-3xl opacity-80
-                bg-gradient-to-r from-lime-300 via-emerald-400 to-green-500"
-              />
-
-              {/* frame bulat */}
-              <div
-                className="relative rounded-full p-[4px]
-                bg-gradient-to-r from-lime-200 via-emerald-300 to-green-400"
-              >
-                <div
-                  className="w-[280px] h-[280px] md:w-[360px] md:h-[360px]
-                  rounded-full overflow-hidden
-                  bg-white/10 backdrop-blur-xl border border-white/20"
-                >
-                  <img
-                    src="/helm.jpg"
-                    alt="profile"
-                    className="w-full h-full
-                    object-cover
-                    object-top
-                    scale-[1.15]
-                    translate-y-2
-                    group-hover:scale-[1.2]
-                    transition duration-700"
-                  />
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* TEXT */}
-          <div className="text-center md:text-left">
-
-            {/* badge */}
+            {/* BADGE */}
             <span
               className="inline-block px-5 py-2 rounded-full
               bg-gradient-to-r from-lime-300 to-emerald-400
@@ -122,7 +80,7 @@ export default function HeroSection({ isDark }) {
               FUTURE IN PROGRESS ✦
             </span>
 
-            {/* title */}
+            {/* TITLE */}
             <h1
               className="text-4xl md:text-6xl font-bold leading-tight text-white
               font-['Cinzel']"
@@ -130,7 +88,7 @@ export default function HeroSection({ isDark }) {
               Journey Starts
             </h1>
 
-            {/* name */}
+            {/* NAME */}
             <h2
               className="mt-3 text-3xl md:text-5xl font-bold whitespace-nowrap
               bg-gradient-to-r from-lime-200 via-emerald-300 to-green-400
@@ -140,7 +98,7 @@ export default function HeroSection({ isDark }) {
               Qathrun Nada Chalisan
             </h2>
 
-            {/* paragraph */}
+            {/* PARAGRAPH */}
             <p
               className="mt-8 max-w-xl text-lg leading-relaxed
               text-green-100 font-medium
@@ -151,7 +109,7 @@ export default function HeroSection({ isDark }) {
               perjuangan tanpa rasa lelah.
             </p>
 
-            {/* buttons */}
+            {/* BUTTONS */}
             <div className="flex gap-4 mt-10 justify-center md:justify-start">
               <button
                 onClick={scrollToAbout}
@@ -174,10 +132,57 @@ export default function HeroSection({ isDark }) {
               </a>
             </div>
           </div>
+
+          {/* FOTO RIGHT */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex justify-center md:justify-end order-1 md:order-2"
+          >
+            <div className="relative group md:mr-[-10px] md:mt-8">
+
+              {/* GLOW UTAMA */}
+              <div
+                className="absolute -inset-6 rounded-full blur-[110px] opacity-100
+                bg-gradient-to-r from-lime-200 via-emerald-300 to-green-500"
+              />
+
+              {/* GLOW LAYER 2 */}
+              <div
+                className="absolute -inset-8 rounded-full blur-[140px] opacity-70
+                bg-emerald-300"
+              />
+
+              {/* FRAME BULAT */}
+              <div
+                className="relative rounded-full p-[5px]
+                bg-gradient-to-r from-lime-200 via-emerald-300 to-green-400"
+              >
+                <div
+                  className="w-[280px] h-[280px] md:w-[380px] md:h-[380px]
+                  rounded-full overflow-hidden
+                  bg-white/10 backdrop-blur-xl border border-white/20"
+                >
+                  <img
+                    src="/helm.jpg"
+                    alt="profile"
+                    className="w-full h-full
+                    object-cover
+                    object-top
+                    scale-[1.18]
+                    translate-y-8
+                    group-hover:scale-[1.23]
+                    transition duration-700"
+                  />
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* scroll */}
+      {/* SCROLL BUTTON */}
       <motion.button
         onClick={scrollToAbout}
         className="absolute bottom-8 left-1/2 -translate-x-1/2

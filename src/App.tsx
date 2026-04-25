@@ -85,42 +85,51 @@ const App = () => {
               className="w-[260px] h-[260px] z-10"
             >
               <iframe
-                src="https://lottie.host/5b62e716-b98e-4ae6-ab85-4d10a024abb8/v7N2WmhyFG.lottie"
+                src="https://lottie.host/embed/1ac77ea3-c3af-4fa4-aab0-d7a4cae4ca83/iIzSGwmfEC.lottie"
                 style={{
                   width: "100%",
                   height: "100%",
                   border: "none",
                 }}
+                title="Loading Animation"
               />
             </motion.div>
 
-            {/* TEXT */}
+            {/* WOW TEXT */}
             <motion.div
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               className="text-center mt-6 z-10"
             >
-              <p className="text-lime-300 uppercase tracking-[0.35em] text-xs md:text-sm font-semibold">
-                Welcome To My World
+              <p className="text-lime-300 uppercase tracking-[0.45em] text-xs md:text-sm font-bold">
+                ENTERING THE STORY
               </p>
 
-              <h1 className="text-white text-3xl md:text-5xl font-black tracking-wide mt-3">
-                Qathrun Nada Chalisan
+              {/* NAME ONE LINE */}
+              <h1 className="mt-4 text-3xl md:text-5xl lg:text-6xl font-black leading-tight whitespace-nowrap">
+                <span className="bg-gradient-to-r from-lime-200 via-emerald-300 to-green-400 bg-clip-text text-transparent">
+                  Qathrun
+                </span>{" "}
+                <span className="text-white">
+                  Nada Chalisan
+                </span>
               </h1>
 
-              <p className="text-green-100/80 text-sm md:text-base mt-4 italic">
-                Future Entrepreneur • Midnight Dreamer • Keep Moving Forward ✨
+              <p className="text-green-100/80 text-sm md:text-lg mt-5 max-w-xl mx-auto leading-relaxed">
+                Not just building a portfolio —
+                <br />
+                creating a journey, a dream, and a future worth chasing.
               </p>
 
               {/* PROGRESS BAR */}
-              <div className="w-56 h-1.5 bg-white/10 rounded-full overflow-hidden mt-7 mx-auto backdrop-blur-sm">
+              <div className="w-60 h-1.5 bg-white/10 rounded-full overflow-hidden mt-8 mx-auto backdrop-blur-sm">
                 <div className="h-full bg-gradient-to-r from-lime-300 via-emerald-400 to-green-500 animate-[loading_2s_infinite]" />
               </div>
 
               {/* EXTRA STATUS */}
               <p className="text-green-100/70 text-xs md:text-sm mt-6 tracking-wide">
-                📍 Banda Aceh • 🎵 Midnight Soundtrack • ✈️ Dream Destinations
+                ⚡ Future Entrepreneur • 🎵 Midnight Soundtrack • ✈ Dream Destinations
               </p>
             </motion.div>
           </motion.div>
@@ -141,7 +150,6 @@ const App = () => {
         )}
       </AnimatePresence>
 
-      {/* ANIMATION */}
       <style>
         {`
           @keyframes loading {
